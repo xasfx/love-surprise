@@ -522,19 +522,16 @@ flex-direction:column;
 }
 
 .galleryContainer{
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
 
-width:100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-display:grid;
+    gap: 30px;
 
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
-
-margin:50px auto;
-
-max-width:1200px;
-
+    justify-items: center;
 }
 
 .photo{
