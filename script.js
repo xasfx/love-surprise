@@ -1,7 +1,6 @@
 // ============================
 // ELEMENTS
 // ============================
-alert("NEW SCRIPT LOADED");
 const intro = document.getElementById("intro");
 const hero = document.getElementById("hero");
 const letter = document.getElementById("letter");
