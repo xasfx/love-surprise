@@ -364,3 +364,292 @@ y:Math.random()*0.5
 },250);
 
 });
+// ============================
+// SHOW ENDING
+// ============================
+
+function showEnding(){
+
+showSection(proposal,ending);
+
+gsap.from(".endingContent",{
+
+opacity:0,
+
+y:80,
+
+duration:2,
+
+ease:"power3.out"
+
+});
+
+createRosePetals();
+
+shootingStars();
+
+}
+
+// ============================
+// ROSE PETALS
+// ============================
+
+function createRosePetals(){
+
+setInterval(()=>{
+
+const petal=document.createElement("div");
+
+petal.innerHTML="🌹";
+
+petal.style.position="fixed";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.top="-50px";
+
+petal.style.fontSize=(20+Math.random()*25)+"px";
+
+petal.style.pointerEvents="none";
+
+petal.style.zIndex="9999";
+
+petal.style.transition="transform 8s linear, opacity 8s linear";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+
+petal.style.transform=
+
+`translateY(${window.innerHeight+100}px)
+rotate(${Math.random()*720}deg)
+translateX(${Math.random()*300-150}px)`;
+
+petal.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},8500);
+
+},350);
+
+}
+
+// ============================
+// SHOOTING STARS
+// ============================
+
+function shootingStars(){
+
+setInterval(()=>{
+
+const star=document.createElement("div");
+
+star.style.position="fixed";
+
+star.style.width="3px";
+
+star.style.height="3px";
+
+star.style.background="white";
+
+star.style.boxShadow="0 0 15px white";
+
+star.style.left=Math.random()*window.innerWidth+"px";
+
+star.style.top=Math.random()*250+"px";
+
+star.style.zIndex="9999";
+
+star.style.pointerEvents="none";
+
+document.body.appendChild(star);
+
+gsap.to(star,{
+
+x:350,
+
+y:250,
+
+opacity:0,
+
+duration:1.2,
+
+ease:"power2.out",
+
+onComplete(){
+
+star.remove();
+
+}
+
+});
+
+},2500);
+
+}
+
+// ============================
+// CURSOR GLOW
+// ============================
+
+document.addEventListener("mousemove",(e)=>{
+
+const glow=document.createElement("div");
+
+glow.style.position="fixed";
+
+glow.style.width="10px";
+
+glow.style.height="10px";
+
+glow.style.borderRadius="50%";
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+glow.style.pointerEvents="none";
+
+glow.style.background="rgba(255,255,255,.9)";
+
+glow.style.boxShadow="0 0 20px #ff4f8b";
+
+glow.style.zIndex="99999";
+
+document.body.appendChild(glow);
+
+gsap.to(glow,{
+
+scale:4,
+
+opacity:0,
+
+duration:.8,
+
+ease:"power2.out",
+
+onComplete(){
+
+glow.remove();
+
+}
+
+});
+
+});
+
+// ============================
+// PHOTO HOVER EFFECT
+// ============================
+
+document.querySelectorAll(".photo").forEach(photo=>{
+
+photo.addEventListener("mouseenter",()=>{
+
+gsap.to(photo,{
+
+scale:1.05,
+
+duration:.4
+
+});
+
+});
+
+photo.addEventListener("mouseleave",()=>{
+
+gsap.to(photo,{
+
+scale:1,
+
+duration:.4
+
+});
+
+});
+
+});
+
+// ============================
+// HERO IMAGE FLOAT
+// ============================
+
+gsap.to(".heroImage",{
+
+y:-15,
+
+repeat:-1,
+
+yoyo:true,
+
+duration:3,
+
+ease:"sine.inOut"
+
+});
+
+// ============================
+// PROPOSAL IMAGE FLOAT
+// ============================
+
+gsap.to(".proposalImage",{
+
+y:-15,
+
+repeat:-1,
+
+yoyo:true,
+
+duration:3,
+
+ease:"sine.inOut"
+
+});
+
+// ============================
+// TITLE GLOW
+// ============================
+
+gsap.to(".mainTitle",{
+
+textShadow:"0 0 40px #ff4f8b",
+
+repeat:-1,
+
+yoyo:true,
+
+duration:2
+
+});
+
+// ============================
+// BUTTON PULSE
+// ============================
+
+gsap.to("button",{
+
+scale:1.03,
+
+repeat:-1,
+
+yoyo:true,
+
+duration:1.5,
+
+stagger:.15
+
+});
+
+// ============================
+// CONSOLE MESSAGE ❤️
+// ============================
+
+console.log("%c❤️ Made With Love ❤️",
+
+"font-size:30px;color:#ff4f8b;font-weight:bold;");
