@@ -1,1 +1,450 @@
-body{margin:0;font-family:Arial;background:linear-gradient(135deg,#ff6b81,#ff9ff3);display:flex;justify-content:center;align-items:center;height:100vh}.container{background:#fff;padding:30px;border-radius:20px;text-align:center;max-width:420px;box-shadow:0 10px 30px rgba(0,0,0,.2)}.photo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:6px solid #ff4d6d}.hidden{display:none}button{padding:12px 24px;margin:10px;border:none;border-radius:30px;cursor:pointer}#yes,#showBtn{background:#ff4d6d;color:#fff}#no{background:#666;color:#fff;position:relative}
+/* ===========================
+   GOOGLE FONTS RESET
+=========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:#050816;
+
+color:white;
+
+overflow:hidden;
+
+}
+
+/* ===========================
+BACKGROUND
+=========================== */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+
+radial-gradient(circle at top,#4d3cff55,transparent 45%),
+
+radial-gradient(circle at bottom,#ff4f8b22,transparent 40%),
+
+linear-gradient(180deg,#050816,#090d1d,#050816);
+
+z-index:-5;
+
+}
+
+/* ===========================
+STARS
+=========================== */
+
+#stars{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-2;
+
+}
+
+.star{
+
+position:absolute;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkle linear infinite;
+
+}
+
+@keyframes twinkle{
+
+0%{
+opacity:.2;
+transform:scale(.5);
+}
+
+50%{
+opacity:1;
+transform:scale(1.4);
+}
+
+100%{
+opacity:.2;
+transform:scale(.5);
+}
+
+}
+
+/* ===========================
+HEARTS
+=========================== */
+
+#hearts{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+.heart{
+
+position:absolute;
+
+color:#ff4f8b;
+
+font-size:18px;
+
+animation:floatUp linear forwards;
+
+opacity:.8;
+
+}
+
+@keyframes floatUp{
+
+0%{
+
+transform:translateY(0) scale(.5);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.4);
+
+opacity:0;
+
+}
+
+}
+
+/* ===========================
+SECTIONS
+=========================== */
+
+section{
+
+width:100vw;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+transition:1s;
+
+padding:30px;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+/* ===========================
+INTRO
+=========================== */
+
+#intro{
+
+text-align:center;
+
+}
+
+.intro-content{
+
+max-width:900px;
+
+}
+
+.fadeText{
+
+font-size:24px;
+
+font-weight:300;
+
+opacity:.8;
+
+letter-spacing:4px;
+
+margin-bottom:25px;
+
+animation:fadeIn 2s;
+
+}
+
+.mainTitle{
+
+font-size:72px;
+
+font-family:'Playfair Display',serif;
+
+margin-bottom:25px;
+
+background:linear-gradient(90deg,#ffffff,#ffc3da,#ffffff);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:glow 3s infinite;
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+opacity:.8;
+
+margin-bottom:50px;
+
+}
+
+@keyframes glow{
+
+0%{
+
+text-shadow:0 0 10px #ffffff22;
+
+}
+
+50%{
+
+text-shadow:
+
+0 0 25px #ffffff88,
+
+0 0 40px #ff4f8b88;
+
+}
+
+100%{
+
+text-shadow:0 0 10px #ffffff22;
+
+}
+
+}
+
+/* ===========================
+BUTTONS
+=========================== */
+
+button{
+
+padding:18px 42px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:18px;
+
+font-weight:600;
+
+transition:.35s;
+
+background:linear-gradient(135deg,#ff4f8b,#ff7ca9);
+
+color:white;
+
+box-shadow:
+
+0 10px 25px rgba(255,79,139,.3);
+
+}
+
+button:hover{
+
+transform:translateY(-4px) scale(1.05);
+
+box-shadow:
+
+0 20px 45px rgba(255,79,139,.5);
+
+}
+
+/* ===========================
+GLASS CARD
+=========================== */
+
+.glassCard{
+
+width:90%;
+
+max-width:900px;
+
+padding:45px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.4);
+
+text-align:center;
+
+}
+
+/* ===========================
+IMAGE
+=========================== */
+
+.heroImage{
+
+width:260px;
+
+height:260px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:6px solid white;
+
+box-shadow:
+
+0 0 40px rgba(255,255,255,.3),
+
+0 0 70px rgba(255,79,139,.5);
+
+margin-bottom:30px;
+
+transition:.5s;
+
+}
+
+.heroImage:hover{
+
+transform:scale(1.05);
+
+}
+
+/* ===========================
+TEXT
+=========================== */
+
+h1{
+
+font-family:'Playfair Display',serif;
+
+font-size:52px;
+
+margin-bottom:20px;
+
+}
+
+h2{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:20px;
+
+line-height:1.8;
+
+opacity:.9;
+
+}
+
+/* ===========================
+FADE
+=========================== */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.glassCard{
+
+animation:fadeIn 1.2s;
+
+}
