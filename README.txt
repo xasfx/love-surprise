@@ -1,1 +1,0 @@
-Replace this with your image named girlfriend.jpg
