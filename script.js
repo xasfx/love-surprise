@@ -84,18 +84,22 @@ setInterval(createHeart,400);
 // SHOW SECTION
 // ============================
 
-function showSection(current,next){
+function showSection(current, next){
 
 current.classList.add("hidden");
 
 next.classList.remove("hidden");
 
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
+gsap.fromTo(next,
+{
+    opacity:0,
+    y:60
+},
+{
+    opacity:1,
+    y:0,
+    duration:1.2,
+    ease:"power3.out"
 });
 
 }
